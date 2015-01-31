@@ -6,14 +6,12 @@ var del = require('del');
 
 gulp.task('images', function() {
   return gulp.src(['src/**/*'])
-    .pipe($.size({ title: "before" }))
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
     })))
     .pipe(gulp.dest('dist'))
-    .pipe($.debug())
-    .pipe($.size({ title: "after" }));
+    .pipe($.debug());
 });
 
 gulp.task('clearCache', function (done) {
